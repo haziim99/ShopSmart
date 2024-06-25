@@ -1,0 +1,15 @@
+main {
+  padding-block: 70px 30px;
+  margin-block: auto;
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.flag-icon {
+  width: 40px;
+  height: 40px;
+}

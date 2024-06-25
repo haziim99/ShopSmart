@@ -1,0 +1,223 @@
+<nav
+  #navbar
+  class="navbar shadow-sm navbar-expand-lg fixed-top navbar-light bg-light px-5"
+>
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">
+      <img src="./assets/images/freshcart-logo.png" alt="freshCart" class="header-logo" />
+    </a>
+    <button
+      class="navbar-toggler d-lg-none"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapsibleNavId"
+      aria-controls="collapsibleNavId"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav mt-2 mt-lg-0" [ngClass]="{'me-auto':translate.currentLang === 'en', 'ms-auto':translate.currentLang === 'ar'}">
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active-link" routerLink="/home">{{"Home"| translate}}</a>
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active-link"
+            routerLink="/products"
+            >{{"Products"| translate}}</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active-link"
+            routerLink="/brands"
+            >{{"Brands"| translate}}</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active-link"
+            routerLink="/categories"
+            >{{"Categories"| translate}}</a
+          >
+        </li>
+      </ul>
+
+      <ul class="navbar-nav mt-2 mt-lg-0 navbar-icons " [ngClass]="{'ms-auto':translate.currentLang === 'en', 'me-auto':translate.currentLang === 'ar'}">
+
+        <li class="nav-item  hstack">
+          <a routerLink="/whishlist" class="text-main number-item">
+            <i class="fas fa-heart fa-2x"></i>
+            <!-- <span *ngIf="whishItemNumber"> {{ whishItemNumber }} </span> -->
+            <span class="text-white" *ngIf="whishItemNumberS"> {{ whishItemNumberS }} </span>
+          </a>
+        </li>
+
+
+
+        <!-- <li class="nav-item me-2">
+          <div class="dropdown">
+            <button
+              class="dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fas fa-user text-success"></i>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a
+                  class="dropdown-item small"
+                  routerLinkActive="active-link"
+                  routerLink="/forgot"
+                  >Forgot Password</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item small"
+                  routerLinkActive="active-link"
+                  routerLink="/updatepass"
+                  >Update password</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item small"
+                  routerLinkActive="active-link"
+                  routerLink="/profile"
+                  >Profile</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item small"
+                  routerLinkActive="active-link"
+                  routerLink="/allorders"
+                  >My Orders</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li> -->
+
+        <!-- <li class="nav-item me-4 hstack">
+          <a class="nav-link position-relative" routerLink="/cart">
+            <i class="fas fa-cart-shopping fa-2x text-main"></i>
+            <span class="badge bg-info position-absolute top-0 end-0">
+              {{ cartItemNumberS }}
+            </span>
+          </a>
+        </li> -->
+
+        <li class="nav-item mx-3 hstack">
+          <a class="nav-link position-relative" routerLink="/cart" >
+            <i class="fas fa-cart-shopping fa-2xl text-main"  [ngClass]="
+            {'fa-flip-horizontal':translate.currentLang === 'ar'}"></i>
+            <span class="badge bg-info position-absolute top-0 end-0" [ngClass]="
+            {'end-0':translate.currentLang === 'en',
+            'start-0':translate.currentLang === 'ar'}">
+              {{ cartItemNumberS }}
+            </span>
+          </a>
+        </li>
+
+        <li class="nav-item dropdown  navbardropdown" ngbDropdown>
+          <a class="nav-link  text-main" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+            <i class="fa-solid fa-bars nav-icons"></i>
+          </a>
+          <ul class="dropdown-menu dropstart"  ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
+            <li (click)="changeLangage('en')" *ngIf="translate.currentLang == 'ar'" ngbDropdownItem class="p-2">
+              <span class="">
+                <!-- <span>EN</span> -->
+                <img class="p-1 flag-icon" src="./assets/images/united-states.png" alt="freshCart" />
+            </span>
+            </li>
+
+            <li (click)="changeLangage('ar')" *ngIf="translate.currentLang == 'en'" ngbDropdownItem class="p-2">
+              <span class="">
+                <img class="p-1 flag-icon" src="./assets/images/flag.png" alt="freshCart" />
+                <!-- <span>AR</span> -->
+            </span>
+            </li>
+
+            <li ngbDropdownItem>
+              <a
+            href="https://www.facebook.com/mmhazem99/"
+            target="_blank"
+            class="text-reset"
+            style="color: #4267B2 !important;"
+            ><i class="fab fa-facebook h4" ></i>
+          </a>
+            </li>
+            <li ngbDropdownItem>
+              <a
+              target="_blank"
+              href="https://wa.me/4366567009283"
+              class="text-reset">
+              <i class="fab fa-whatsapp text-main h4"></i>
+            </a>
+            </li>
+
+            <li class="nav-item ms-auto align-content-center ">
+              <span (click)="logOut()" class="nav-link h6" role="button">{{"SignOut"| translate}}</span>
+            </li>
+
+          </ul>
+        </li>
+
+
+        <li class="nav-item hstack navbar-social-language">
+          <span class="d-block navbar-social-language" (click)="changeLangage('en')" *ngIf="translate.currentLang == 'ar'">
+            <!-- <span>EN</span> -->
+            <img class="p-1 flag-icon" src="./assets/images/united-states.png" alt="freshCart" />
+          </span>
+
+          <span class="d-block navbar-social-language" (click)="changeLangage('ar')" *ngIf="translate.currentLang == 'en'">
+            <img class="p-1 flag-icon" src="./assets/images/flag.png" alt="freshCart" />
+            <!-- <span>AR</span> -->
+          </span>
+        </li>
+
+      </ul>
+
+
+      <ul class="d-flex pt-3 navbar-social-language ps-0">
+
+
+          <a
+          href="https://www.facebook.com/mmhazem99/"
+          target="_blank"
+          class="text-reset me-4 navbar-social-language"
+          [ngClass]="{'me-4':translate.currentLang === 'en', 'ms-4':translate.currentLang === 'ar'}"
+          style="color: #4267B2 !important;"
+          ><i class="fab fa-2xl fa-facebook" ></i>
+          </a>
+
+          <a
+          target="_blank"
+          href="https://wa.me/4366567009283"
+          class="text-reset navbar-social-language">
+          <i class="fab fa-2xl fa-whatsapp text-main"></i>
+          </a>
+      </ul>
+
+      <ul class="ps-0 nav-item">
+
+        <button  (click)="logOut()" class="logout-button nav-link h6 pt-3 navbar-social-language" role="button">{{"SignOut"| translate}}</button>
+      </ul>
+
+
+    </div>
+  </div>
+</nav>

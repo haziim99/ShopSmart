@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">
+      <img src="./assets/images/freshcart-logo.svg" alt="freshCart" />
+    </a>
+    <button
+      class="navbar-toggler d-lg-none"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapsibleNavId"
+      aria-controls="collapsibleNavId"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId" >
+      <ul class="navbar-nav ms-auto mt-2 mt-lg-0" [ngClass]="
+      {'ms-auto':translate.currentLang === 'en',
+      'me-auto':translate.currentLang === 'ar'}">
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active-link" routerLink="/login"
+            >{{"Login" | translate}}</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active-link"
+            routerLink="/register"
+            >{{"Register" | translate}}</a
+          >
+        </li>
+
+        <li class="nav-item me-3 hstack navbar-social-language">
+          <span class="d-block navbar-social-language" (click)="changeLangage('en')" *ngIf="translate.currentLang == 'ar'">
+            <!-- <span>EN</span> -->
+            <img class="p-1 flag-icon" src="./assets/images/united-states.png" alt="freshCart" />
+          </span>
+
+          <span class="d-block navbar-social-language" (click)="changeLangage('ar')" *ngIf="translate.currentLang == 'en'">
+            <img class="p-1 flag-icon" src="./assets/images/flag.png" alt="freshCart" />
+            <!-- <span>AR</span> -->
+          </span>
+        </li>
+
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+  <router-outlet></router-outlet>
+</main>

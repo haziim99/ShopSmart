@@ -1,0 +1,74 @@
+.categories {
+  img {
+    height: 200px;
+  }
+}
+.slider-section {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.slider-section .row {
+  margin: 0;
+}
+
+.slider-section .col-12 {
+  padding: 0;
+}
+
+.slider-img {
+  width: 100%;
+  height: 450px; /* تعديل الطول ليكون أكبر قليلاً */
+  object-fit: cover;
+  border: 2px solid #ddd; /* إضافة حدود للصورة */
+  border-radius: 8px; /* تقويس الحواف */
+}
+
+.categories {
+  img {
+    height: 200px; /* تحديد الطول للصور في الفئات */
+    width: 100%; /* تأكد من أن الصور تغطي الحاوية بشكل كامل */
+    object-fit: cover; /* تأكد من أن الصور تغطي الحاوية دون تشويه */
+    border: 2px solid #ddd; /* إضافة حدود للصورة */
+    border-radius: 8px; /* تقويس الحواف */
+  }
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+}
+
+.prev-slide {
+  left: 10px;
+}
+
+.next-slide {
+  right: 10px;
+}
+
+.nav-btn::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+}
+
+.prev-slide::before {
+  transform: rotate(-135deg);
+}
+
+.next-slide::before {
+  transform: rotate(45deg);
+}
